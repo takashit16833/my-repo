@@ -4,7 +4,6 @@ jobs:
   compare:
     runs-on: ubuntu-latest
     steps:
-      - run: printenv | grep '_FUNC'
+      - run: echo "${CONTEXT}"
         env:
-          FORMAT_FUNC: ${{ format('{0}, {1}.', 'Hi', 'world') }} # format
-          JOIN_FUNC: ${{ join(github.event.*.html_url, ',' )}} # `,`で結合
+          CONTEXT: ${{ (toJSON(github)) }} # github コンテキストを JSON にダンプ
