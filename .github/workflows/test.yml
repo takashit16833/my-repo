@@ -1,13 +1,17 @@
-name: Log Group
+name: Parallel jobs
 on: push
 jobs:
-  log:
+  first:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "::error::This is an error"
-      - run: echo "::warning::This is a warning"
-      - run: echo "::notice::This is a notice"
-      - run: |
-          echo "::group::Show environment variables"
-          printenv
-          echo "::endgroup::"
+      - run: sleep 10 && echo "First job"
+
+  second:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep 10 && echo "Second job"
+
+  third:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep 10 && echo "Third job"
