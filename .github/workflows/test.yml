@@ -1,13 +1,7 @@
-name: Test
-on:
-  pull_request:
-    paths: ["go/**/*.go"]
+name: Debug log
+on: push
 jobs:
-  test:
+  log:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-go@v5
-        with:
-          go-version: "1.22"
-      - run: go test go/excellent/*.go
+      - run: echo "::debug::This is a debug log"
