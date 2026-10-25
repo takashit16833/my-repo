@@ -1,7 +1,10 @@
-name: Debug log
+name: Log Group
 on: push
 jobs:
   log:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "::debug::This is a debug log"
+      - run: |
+          echo "::group::Show environment variables"
+          prirtenv
+          echo "::endgroup::"
