@@ -3,9 +3,9 @@ package main
 import "testing"
 
 func TestEvenOrOdd(t *testing.T) {
-    result := EvenOrOdd(10)
+    actual := EvenOrOdd(10)
 
-    if result != "even" {
-        t.Errorf("expected: even, actual: %s", result)
+    if actual != "even" {
+        t.Errorf("expected: even, actual: %s", actual)
     }
 }
