@@ -21,7 +21,7 @@ runs:
       shell: bash
 
     - run: echo "${CONTEXT}"
-      if: ${{ inputs.enable-context == 'trle'}}
+      if: ${{ inputs.enable-context == 'true'}}
       env:
         CONTEXT: ${{ toJSON(github) }}
       shell: bash
