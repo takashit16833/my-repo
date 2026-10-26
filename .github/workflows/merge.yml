@@ -2,18 +2,15 @@ name: Auto merge
 on: pull_request
 jobs:
   merge:
-    # Dependabot のPRのみ
-    if: ${{ github.actor == 'dependabot[bot]' }}
+    if: ${{ github.actor == 'dependabot[bot]' }} # Dependabot のPRのみ
     runs-on: ubuntu-latest
 
-    # マージに必要な権限
-    permissions:
+    permissions: # マージに必要な権限
       contents: write
       pull-requests: write
 
     env:
-      # GitHub CLI のクレデンシャル
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub CLI のクレデンシャル
 
     steps:
       - uses: actions/checkout@v4
